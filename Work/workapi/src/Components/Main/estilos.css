@@ -1,0 +1,567 @@
+/*--Page 1-*/
+
+.body{
+    background:linear-gradient(rgba(0,0,0, 0.50) 0%, rgba(0,0,0, 0.50) 100%), url("https://i0.wp.com/codigoespagueti.com/wp-content/uploads/2023/03/Diseno-sin-titulo-9.jpg?fit=1280%2C720&quality=80&ssl=1");
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.899);
+}
+
+.body h1,
+.body2 h1{
+    font-size: 2.5em;
+}
+
+
+.body .boton,
+.body .Salir,
+.body2 .boton{
+    display: flex;
+    padding: 0% 8%;
+    border-radius: 30px;
+    border: none;
+    background-color: black;
+    color: white;
+    font-size: 1.4em ;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: all 1s;
+}
+
+
+
+
+
+.body .boton .icon,
+.body .Salir .icon,
+.body2 .boton .icon
+{
+    position: absolute;
+    transform: translateX(-300px);
+    
+}
+
+
+
+.body .Salir .icon{
+    animation: salirIcon 1s linear;
+}
+@keyframes salirIcon{
+    from{
+        transform: translateX(0px);
+    }
+    to{
+        transform: translateX(-300px);
+    }
+}
+
+.body .Salir p{
+    animation: salirP 1s linear;
+}
+@keyframes salirP{
+    from{
+        transform: translateX(300px);
+    }
+    to{
+        transform: translateX(0px);
+    }
+}
+
+
+.body .boton:hover,
+.body .Salir:hover{
+    background-color: aliceblue;
+}
+
+
+.body .boton:hover p,
+.body .Salir:hover p{
+    transform: translateX(300px);
+    transition: all 1s;
+}
+
+.body .boton:hover .icon,
+.body .Salir:hover .icon{
+    transition: all 1s;
+    transform: translateX(0px);
+    color: black;
+}
+
+
+
+
+
+
+
+/*---Page2-*/
+
+
+.body2{
+    background:linear-gradient(rgba(0,0,0, 0.50) 0%, rgba(0,0,0, 0.50) 100%), url("https://i0.wp.com/codigoespagueti.com/wp-content/uploads/2023/03/Diseno-sin-titulo-9.jpg?fit=1280%2C720&quality=80&ssl=1");
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.899);
+    position: fixed;
+    left: 0px;
+    width: 100%;
+    top: 1000px;
+    animation: bodys 2s linear;
+    z-index: 1000;
+}
+
+
+@keyframes bodys{
+    from{
+        transform: translateY(-1000px);
+    }
+    to{
+        transform: translateY(0px);
+    }
+}
+
+
+
+
+body{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+
+}
+
+
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3em;
+    border-radius: 5px;
+    background-color: #222;
+}
+
+
+
+header ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    list-style: none;
+    position: relative;
+}
+
+
+
+header ul a{
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+}
+
+
+header .PosicionImg,
+header .PosicionImg2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 8%;
+}
+
+header .PosicionImg img{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    animation: pokeHeader 6s linear 5s;
+}
+
+header .PosicionImg2 img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    animation: pokebola 5s linear infinite
+    ;
+}
+/*--pokebola 5s linear infinite--*/
+
+@keyframes pokeHeader{
+    0%{
+        transform: translateX(0px);
+    }
+    50%{
+        transform: translateX(-1000px);
+    }
+    75%{
+        transform: translateX(1000px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
+
+
+@keyframes pokebola{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+header ul li{
+    padding: 0 3em;
+}
+
+
+
+.container{
+    background-color: black;
+    min-height: 100vh;
+    height: 100%;
+    color: white;
+    margin-bottom: 10%;
+}
+
+
+
+
+
+
+
+
+
+
+.PosicionForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+    flex-direction: column;
+}
+
+
+.form{
+    width: 100%;
+    height: 50px;
+    max-width: 400px;
+    position: relative;
+    overflow: hidden;
+
+}
+.input{
+    width: 100%;
+    height: 60%;
+    background: none;
+    color: #fff;
+    padding-top: 20px;
+    border: none;
+    outline: 0px;
+    overflow: hidden;
+}
+.lbl-nombre{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid #c7c7c7;
+}
+.lbl-nombre:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    
+    border-bottom: 3px solid #2ecece;
+    transform: translateX(-100%);
+    transition: all 0.3s ease;
+}
+.text-nomb{
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    transition: all 0.3s ease;
+    color: #fff;
+}
+.input:focus + .lbl-nombre .text-nomb,
+.input:valid + .lbl-nombre .text-nomb{
+    transform: translateY(-150%);
+    font-size: 14px;
+    color: #2ecece;
+}
+.input:focus + .lbl-nombre:after,
+.input:valid  + .lbl-nombre:after{
+    transform: translateX(0%);
+}
+
+
+
+.containerIndex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+}
+
+
+.index{
+    display: grid;
+    height: 100%;
+    min-height: 30em;
+    margin-top: 10%;
+    grid-template-columns: 40% 60%;
+    width: 100%;
+    border: 1px solid white;
+}
+
+
+
+.card1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.card1 .img{
+    width: 300px;
+    height: 300px;
+}
+
+.lista{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+}
+.lista .ul{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        text-transform: uppercase;
+}
+
+
+.lista .ul img{
+    width: 30px;
+    height: 30px;
+    color: grey;
+    padding: 0em 1em;
+}
+.lista .ul li{
+    display: flex;
+    align-items: center;
+    padding: 2em 5em;
+    list-style: none;
+    font-family: 'Times New Roman', Times, serif;
+    justify-content: flex-start;
+}
+
+
+.DivcaractFlex {
+    background-color: rgb(44, 44, 44);
+    width: 100%;
+    height: 100%;
+    transition: all 2s;
+}
+
+
+.DivcaractFlex ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.liOpciones,
+.activo{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    transition: all 2s;
+    margin: 0 3%;
+    position: relative;
+    cursor: pointer;
+}
+
+.activo{
+    color: #2ecece;
+}
+
+
+.liOpciones::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transition: transform .5s;
+    border: 1px solid #2ecece;;
+    display: block;
+}
+
+
+.liOpciones:hover::after{
+    transform: scaleX(1);
+}
+
+
+.activo::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    border-radius: 5px;
+    transform: scaleX(1);
+    transition: transform .5s;
+    border: 1px solid #2ecece;;
+    display: block;
+    z-index: 3;
+}
+
+
+
+.DivcaractFlex .Caracteristicas-ul,
+.DivcaractFlex .Caracteristicas-ul-stat{
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+
+
+@keyframes Caracteristicas {
+    from{
+        top: 0px;
+    }
+    to{
+        top: -1000px;
+    }
+}
+
+
+.DivcaractFlex .Caracteristicas-ul img,
+.DivcaractFlex .Caracteristicas-ul-stat img{
+    width: 30px;
+    height: 30px;
+}
+
+.DivcaractFlex .Caracteristicas-ul span,
+.DivcaractFlex .Caracteristicas-ul-stat span{
+    color: grey;
+    padding: 0 1em;
+}
+
+.DivcaractFlex .Caracteristicas-ul li,
+.DivcaractFlex .Caracteristicas-ul-stat li{
+    padding: 2em;
+    list-style: none;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+}
+
+
+
+.search-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 250px;
+    overflow: hidden;
+    max-height: 300px;
+    overflow-y: hidden;
+    width: 400px;
+    scroll-behavior: smooth;
+    margin-top: 1%;
+}
+
+.search{
+    display: flex;
+    background-color: rgb(49, 49, 49);
+    margin: 20px;
+    height: 100px;
+    width: 100%;
+    border-radius: 35px;
+}
+
+
+.search img{
+    width: 100px;
+    padding: 1em 2em;
+}
+
+.search p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3em;
+    cursor: pointer;
+    transition: all .5s;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+.search p:hover{
+    color: #2ecece;
+    font-size: 1.4em;
+}
+
+
+.posicionBtones{
+    top: 330px;
+    position: absolute;
+}
+.bton1,
+.bton2{
+    padding: 0.8em 1.5em;
+    border-radius: 15px;
+    border: none;
+    background-color: rgba(59, 58, 58, 0.726);
+    color: rgb(187, 183, 183);
+    cursor: pointer;
+    font-size: 1.3em;
+    transition: all .5s;
+}
+
+
+.bton1:hover,
+.bton2:hover{
+    background-color: rgb(161, 158, 158);
+    color: black;
+}
+.bton1{
+    position: relative;
+    left: 350px;
+}
+
+
+.bton2{
+    position: relative;
+    right: 350px;
+}
