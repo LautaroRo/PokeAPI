@@ -5,6 +5,7 @@ import proteger from "./../Assets/proteger.png"
 import bomba from "./../Assets/bomba.png"
 import blindaje from "./../Assets/blindaje.png"
 import speed from "./../Assets/Speed.png"
+import pregunta from "./../Assets/informacion.png"
 export const Use = createContext()
 
 const Usecontext = ({children}) => {
@@ -20,13 +21,15 @@ const Usecontext = ({children}) => {
     const [SeccionStats, setSeccionStats] = useState(false)
     const [SeccionHabilidades, setSeccionHabilidades] = useState(false)
     const [animation, setAnimation] = useState(false)
+
+
     let search = document.getElementById("search-list")
     const cambiarPage = () =>{
         setPage(true)
     }
 
     const AllPokemons = async()=>{
-        let url = "https://pokeapi.co/api/v2/pokemon/?offset=1&limit=1280";
+        let url = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1280";
         const response = await fetch(url);
         const data = await response.json();
 
@@ -78,6 +81,7 @@ const Usecontext = ({children}) => {
         for(let i = 0; data.types.length > i; i++){
         
             const tipo =data.types[i].type.name
+            console.log(data.types[i].type.url)
             if( i > 0 ){
                 especieContact.push(" - ")
             }
@@ -231,10 +235,7 @@ const Usecontext = ({children}) => {
                 input.value = searchNombre
                 buscarpokemon(searchNombre)
                 search.innerHTML= ""
-            }else if(input.value === null){
-                search.innerHTML= ""
             }
-            console.log(input.value.length)
         }
         
         const scrollMas = (e) =>{
@@ -307,8 +308,15 @@ const Usecontext = ({children}) => {
         const cambiar = () =>{
             setAnimation(true)
         }
+
+
+
+
+
+    
+        
     return (
-        <Use.Provider value={{cambiarPage, page, setPage, AllPokemons, obtener, habilidades, Stats, botones, corazon, espada, proteger, bomba, blindaje, speed, subir, Moves, estado, buscarpokemon, scrollMas, scrollMenos , buscar, seccionM, seccionC, seccionS, seccionH, SeccionCaract, SeccionMove,SeccionStats,SeccionHabilidades, cambiar, animation, setAnimation }}>
+        <Use.Provider value={{cambiarPage, page, setPage, AllPokemons, obtener, habilidades, Stats, botones, subir, Moves, estado, buscarpokemon, scrollMas, scrollMenos , buscar, seccionM, seccionC, seccionS, seccionH, SeccionCaract, SeccionMove,SeccionStats,SeccionHabilidades, cambiar, animation, setAnimation, pregunta}}>
             {children}
         </Use.Provider>
     )

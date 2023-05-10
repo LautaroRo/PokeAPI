@@ -10,6 +10,11 @@
     flex-direction: column;
     align-items: center;
     color: rgba(255, 255, 255, 0.899);
+    position:fixed;
+    left:0;
+    right:0;
+    top:0;
+    z-index: 3000;
 }
 
 .body h1,
@@ -145,96 +150,6 @@ body{
 }
 
 
-
-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 3em;
-    border-radius: 5px;
-    background-color: #222;
-}
-
-
-
-header ul{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    list-style: none;
-    position: relative;
-}
-
-
-
-header ul a{
-    text-decoration: none;
-    color: white;
-    text-transform: uppercase;
-}
-
-
-header .PosicionImg,
-header .PosicionImg2{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin-left: 8%;
-}
-
-header .PosicionImg img{
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    animation: pokeHeader 6s linear 5s;
-}
-
-header .PosicionImg2 img{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    animation: pokebola 5s linear infinite
-    ;
-}
-/*--pokebola 5s linear infinite--*/
-
-@keyframes pokeHeader{
-    0%{
-        transform: translateX(0px);
-    }
-    50%{
-        transform: translateX(-1000px);
-    }
-    75%{
-        transform: translateX(1000px);
-    }
-    100%{
-        transform: translateX(0px);
-    }
-}
-
-
-@keyframes pokebola{
-    from{
-        transform: rotate(0deg);
-    }
-    to{
-        transform: rotate(360deg);
-    }
-}
-
-header ul li{
-    padding: 0 3em;
-}
-
-
-
 .container{
     background-color: black;
     min-height: 100vh;
@@ -242,14 +157,6 @@ header ul li{
     color: white;
     margin-bottom: 10%;
 }
-
-
-
-
-
-
-
-
 
 
 .PosicionForm{
@@ -335,6 +242,7 @@ header ul li{
     grid-template-columns: 40% 60%;
     width: 100%;
     border: 1px solid white;
+    background-color: rgb(44, 44, 44);
 }
 
 
@@ -342,13 +250,17 @@ header ul li{
 .card1{
     display: flex;
     justify-content: center;
+    background-color: black;
     align-items: center;
+    height: 100%;
+    min-height: 100px;
 }
 
-
-.card1 .img{
-    width: 300px;
-    height: 300px;
+.card1 img{
+    width: 90%;
+    height: 90%;
+    max-width: 300px;
+    max-height: 300px;
 }
 
 .lista{
@@ -362,6 +274,7 @@ header ul li{
         display: grid;
         grid-template-columns: repeat(2,1fr);
         text-transform: uppercase;
+        padding: 0px 0px 0px 0px;
 }
 
 
@@ -382,7 +295,6 @@ header ul li{
 
 
 .DivcaractFlex {
-    background-color: rgb(44, 44, 44);
     width: 100%;
     height: 100%;
     transition: all 2s;
@@ -394,6 +306,9 @@ header ul li{
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin: 0;
+    padding: 0px 0px 0px 0px;
+    margin-top: 2%;
 }
 
 
@@ -406,6 +321,7 @@ header ul li{
     margin: 0 3%;
     position: relative;
     cursor: pointer;
+    list-style: none;
 }
 
 .activo{
@@ -564,4 +480,152 @@ header ul li{
 .bton2{
     position: relative;
     right: 350px;
+}
+
+
+@media screen and (max-width:1000px) {
+    .index{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+
+@media screen and (max-width:770px){
+    .lista .ul li{
+        padding: 2em 2em;
+    }
+
+    .search-list{
+        width: 300px;
+    }
+
+    .bton1{
+        left: 280px;
+        
+    }
+    .bton2{
+        right: 280px;
+        
+    }
+
+    .bton1,
+    .bton2{
+        top: -30px;
+        padding: 0.8em 1.2em;
+    }
+}
+
+
+
+
+@media screen and (max-width:600px){
+    .search-list{
+        width: 250px;
+    }
+
+    .search img{
+        width: 50px;
+    }
+    .bton1{
+        left: 220px;
+        
+    }
+    .bton2{
+        right: 220px;
+        
+    }
+}
+
+
+@media screen and (max-width:550px){
+    .DivcaractFlex ul{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .DivcaractFlex ul li{
+        margin: 2% 5%;
+    }
+
+    .lista .ul li{
+        padding: 2em 1.5em;
+    }
+}
+
+
+
+@media screen and (max-width:511px){
+
+    .lista{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .lista .ul{
+        display: flex;
+    }
+
+
+
+    .bton1{
+        left: 200px;
+    }
+
+    .bton2{
+        right: 200px;
+    }
+    .bton1,
+    .bton2{
+        top: -30px;
+        padding: 0.6em 0.5em;
+    }
+}
+
+
+
+@media screen and (max-width:455px){
+    .bton1{
+        left: 180px;
+    }
+
+    .bton2{
+        right: 180px;
+    }
+
+    .search-list{
+        width: 150px;
+    }
+
+    .search{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 200px;
+    }
+
+    .search p{
+        font-size: 1em;
+    }
+}
+
+
+
+@media screen and (max-width:455px){
+    .bton1{
+        left: 150px;
+    }
+
+    .bton2{
+        right: 150px;
+    }
+
+    .DivcaractFlex .Caracteristicas-ul, .DivcaractFlex .Caracteristicas-ul-stat{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    } 
 }

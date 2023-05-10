@@ -9,7 +9,7 @@ import { Use } from '../../Context/Usecontext'
 import Header from '../Header'
 const Main = () => {
 
-    const {cambiarPage, page, Img, setPage, AllPokemons, obtener, habilidades, Stats, botones, subir, Moves, estado, buscarpokemon, scrollMas, scrollMenos , buscar, seccionM, seccionC, seccionS, seccionH, SeccionCaract, SeccionMove,SeccionStats,SeccionHabilidades, cambiar, animation, setAnimation } = useContext(Use)
+    const {cambiarPage, page, Img, setPage, AllPokemons, obtener, habilidades, Stats, botones, subir, Moves, estado, scrollMas, scrollMenos , buscar, seccionM, seccionC, seccionS, seccionH, SeccionCaract, SeccionMove,SeccionStats,SeccionHabilidades, cambiar, animation, setAnimation, pregunta } = useContext(Use)
 
 
 useEffect(()=>{
@@ -57,33 +57,7 @@ useEffect(()=>{
 
             <body> 
                 <div className='container'>
-                {/*--
-                <header>
-                    <h1>Pokedex</h1>
-                    {
-                        Img === false
-                        ?
-                        <div className="PosicionImg">
-                            <img src={pokebola}></img>
-                        </div>
-                        :
-                        <div className="PosicionImg2">
-                            <img src={pokebola}></img>
-                        </div>
-
-                    }
-
-                    <nav>
-                        <ul>
-                            <NavLink to="/todos"><li>Todos</li></NavLink>
-                            <NavLink to="/especies"><li>Especies</li></NavLink>
-                        </ul>
-                    </nav>
-                </header>
-                --*/}
-                <Header/>
                 
-
 
                     <div className="PosicionForm">
                         <div className="form">
@@ -112,18 +86,24 @@ useEffect(()=>{
 
                         <main className='containerIndex'>
                             <div className="index">
-                                <div className='card1'> 
-                                    <img src={estado.img} alt={estado.id} />
+                                <div className='card1'>
+                                    {estado.length < 1
+                                    ?
+                                    <img src={pregunta} alt={estado.id} />
+                                    :
+                                        <img src={estado.img} alt={estado.id} />
+                                    }
+                                    
                                 </div>
 
 
                                 <div className="DivcaractFlex">
                                 
                                         <ul>
-                                            <p onClick={seccionC} className='liOpciones activo'>Caracteristcas</p>
-                                            <p onClick={seccionM} className='liOpciones'>Moves</p>
-                                            <p onClick={seccionS} className='liOpciones'>stats</p>
-                                            <p onClick={seccionH} className='liOpciones'>Hablidades</p>
+                                            <li onClick={seccionC} className='liOpciones activo'>Caracteristcas</li>
+                                            <li onClick={seccionM} className='liOpciones'>Moves</li>
+                                            <li onClick={seccionS} className='liOpciones'>stats</li>
+                                            <li onClick={seccionH} className='liOpciones'>Hablidades</li>
                                         </ul>
 
 
@@ -134,7 +114,7 @@ useEffect(()=>{
                                     SeccionMove === true
                                     ?
                                     <div className='lista'>
-                                        <p className='ul'>
+                                        <ul className='ul'>
                                         {
                                         Moves.map((Moves)=>{
                                             return(
@@ -143,7 +123,7 @@ useEffect(()=>{
                                                 </li>
                                             )
                                         })}
-                                        </p>
+                                        </ul>
                                     </div>
                                     :
                                         null
@@ -166,7 +146,7 @@ useEffect(()=>{
                                         <li><img src={pokebola3} alt="" /><span>Tamaño:</span> {estado.height}</li>
                                     </ul>
                                     :
-                                        null
+                                    null
                                     }
 
 
