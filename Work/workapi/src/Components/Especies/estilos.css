@@ -1,10 +1,11 @@
 .container-section{
     display: flex;
-    align-items: center;
     width: 80%;
-    height: 90%;
+    height: 100%;
     justify-content: center;
+    align-items: center;
 }
+
 
 
 .container-especies{
@@ -13,6 +14,10 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    background:linear-gradient(rgba(0,0,0, 0.10) 0%, rgba(0,0,0, 0.50) 100%),  url("./../../Assets/gifPokemon.gif");
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
 }
 
 
@@ -25,6 +30,8 @@
     width: 70%;
     scroll-behavior: smooth;
     padding: 0px 0px 0px 0px;
+    position: relative;
+    top: 60px;
 }
 
 .liEspecies{
@@ -51,12 +58,6 @@
     transform: scalex(1);
 }
 
-
-.container-especies .ulEspecies .liEspecies:hover::after{
-    transform: scalex(2);
-}
-
-
 .container-especies .ulEspecies .liEspecies:hover{
     color: #2ecece;
 }
@@ -81,10 +82,11 @@
 .section{
     display: flex;
     justify-content: center;
-    align-items: center;
     border: 1px solid white;
     text-align: center;
     overflow: hidden;
+    height: 100%;
+    max-height: 63vh;
     scroll-behavior: smooth ;
     width: 100%;
 }
@@ -105,7 +107,7 @@
     height: 100%;
 }
 .section .ulGrid::-webkit-scrollbar-track {
-    background-color: black; /* Color del fondo del scrollbar */
+    background-color: transparent; /* Color del fondo del scrollbar */
 }
 .section .ulGrid::-webkit-scrollbar-thumb {
     background-color: white; /* Color del scrollbar */
@@ -210,12 +212,15 @@
     justify-content: space-between;
     align-items: center;
     width: 60%;
+    margin-top: 2%;
 }
 
 
 .btonv2{
     cursor: pointer;
     padding: .6em 1.4em;
+    position: relative;
+    top: 60px;
 }
 
 
@@ -235,6 +240,10 @@
     animation: loading infinite linear 1s;
 }
 
+.DivLoading{
+    position: relative;
+    top: 70px;
+}
 @keyframes loading{
     from{
         transform: rotate(0deg);
@@ -242,4 +251,166 @@
     to{
         transform: rotate(-360deg);
     }
+}
+.Divlabel{
+    display: none;
+}
+#label{
+    display: none;
+}
+@media screen and (max-width:610px){
+    .Divlabel{
+        display: flex;
+    }
+
+    .container-ul{
+        display: none;
+    }
+    .labelEspecie{
+        cursor: pointer;
+        position: relative;
+        top: 110px;
+        background-color: #e8eeee6b;
+        padding: .4em 4em;
+        border-radius: 10px;
+        transition: all .5s;
+    }
+
+    .labelEspecie:hover{
+        background-color: #1f8b8b93;
+    }
+
+    #label:checked ~ .labelEspecie{
+        background-color: black;
+        border-radius: 100px;
+        position: relative;
+        cursor: pointer;
+        top: 15px;
+        z-index: 2;
+        padding: 0px 0px;
+        height: 60px;
+        width: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #label:checked ~ .labelEspecie .iconEspecies{
+        font-size: 1em;
+    }
+
+
+    #label:checked ~ .labelEspecie:hover{
+        background-color: white;
+    }
+
+    #label:checked ~ .labelEspecie:hover .iconEspecies{
+        color: black;
+    }
+    .ulEspecies2{
+        position: fixed;
+        background: #000000;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        top: 0;
+        left: 1000px;
+        right: 0;
+        bottom: 0;
+        margin: 0;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: all 1.5s;
+    }
+    
+    .ulEspecies2{
+        position: fixed;
+        background-color: #2ecece;
+        top: 0;
+        left: 1000px;
+        right: 0;
+        bottom: 0;
+        margin: 0;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: all 1.5s;
+    }
+    #label:checked ~ .ulEspecies2{
+        position: fixed;
+        background-color: #2ecece;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 0;
+        z-index: 1;
+        display: flex;
+        padding: 0px 0px 0px 0px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: all 1.5s;
+    }
+
+    .liEspecies2{
+        font-size: 1.3em;
+        margin: .5em;
+        list-style: none;
+        cursor: pointer;
+        transition: all .5s;
+        position: relative;
+        text-transform: uppercase;
+    }
+
+
+    .liEspecies2:hover{
+        color: #2ecece;
+        
+    }
+
+
+    .liEspecies2::after{
+        content: "";
+        display: block;
+        position: absolute;
+        width: 100%;
+        border-radius: 5px;
+        border: 1px solid #2ecece;;
+        transform: scaleX(0);
+        transition: all .5s;
+    }
+
+    .liEspecies2:hover::after{
+        transform: scaleX(1);
+    }
+
+    .activado2{
+        color: #2ecece;
+        position: relative;
+    }
+    .activado2::after{
+        content: "";
+        display: block;
+        position: absolute;
+        width: 100%;
+        border-radius: 5px;
+        border: 1px solid #2ecece;;
+        transform: scaleX(1);
+    }
+
+
+    .DivLoading{
+        top:120px;
+    }
+
+    .loading{
+        height: 60px;
+        width: 60px;
+    }
+
 }

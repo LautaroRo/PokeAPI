@@ -6,24 +6,25 @@ import pokebola2 from "./../../Assets/pokebola2.png"
 import pokebola3 from "./../../Assets/pokebola3.png"
 import pokebol4 from "./../../Assets/superball.png"
 import { Use } from '../../Context/Usecontext'
-import Header from '../Header'
 const Main = () => {
 
-    const {cambiarPage, page, Img, setPage, AllPokemons, obtener, habilidades, Stats, botones, subir, Moves, estado, scrollMas, scrollMenos , buscar, seccionM, seccionC, seccionS, seccionH, SeccionCaract, SeccionMove,SeccionStats,SeccionHabilidades, cambiar, animation, setAnimation, pregunta } = useContext(Use)
+    const {cambiarPage, page, setPage, AllPokemons, obtener, habilidades, Stats, botones, subir, Moves, estado, scrollMas, scrollMenos , buscar, seccionM, seccionC, seccionS, seccionH, SeccionCaract, SeccionMove,SeccionStats,SeccionHabilidades, cambiar, animation, setAnimation, pregunta } = useContext(Use)
 
 
 useEffect(()=>{
     AllPokemons()
 },[])
 
-
+    console.log(obtener)
     return (
     <div>
     {
-        obtener.length === 0
+        obtener.length < 0
 
         ?
-        null
+        <div className='backgraoundLoading'>
+
+        </div>
 
         :
     <>

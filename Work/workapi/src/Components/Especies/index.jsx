@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import "./estilos.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRight, faArrowLeft} from "@fortawesome/free-solid-svg-icons"
+import { faArrowRight, faArrowLeft,faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons"
 import girar from "./../../Assets/loading.png"
 
 const Especies = () => {
 
-
+    const [isChecked, setIsChecked] = useState(false);
     const [estadoEspecie, setEstadoEspecie] = useState([])
-    const [count, setCount] = useState(13)
+    const [count, setCount] = useState(18)
     const [Loading, setLoading] = useState(false)
     const Especies = async() =>{
         console.log(count)
@@ -75,20 +75,41 @@ const Especies = () => {
         }
     }
 
-
+    const handleCheckboxClick = () => {
+        setIsChecked(!isChecked);
+    };
 
     const click = (e) => {
         e.preventDefault();
-            const valor = e.target.id
-            setCount(valor)
+        const valor = e.target.id;
+        setCount(valor);
         
-                document.querySelector(".activado").classList.remove("activado")
-                e.target.classList?.add("activado")
-            
-    }
+        const activados = document.querySelector(".activado");
+        if (activados) {
+            activados.classList.remove("activado");
+        }
+        e.target.classList.add("activado");
+};
 
+
+        const click2 = (e) => {
+            e.preventDefault();
+            const valor = e.target.id;
+            setCount(valor);
+            const activados = document.querySelector(".activado2");
+            if(activados){
+                activados.classList.remove("activado2");
+                e.target.classList.add("activado2");
+                setIsChecked(!isChecked);
+            }else{
+                console.log("error")
+            }
+    
+            };
     return (
-        <main className='container-especies'>
+
+    <>
+    <main className='container-especies'>
         <div className='container-ul'>
             <div>
                 <button className='btonv2' onClick={izquierdav2}><FontAwesomeIcon className="iconv2" icon={faArrowLeft}/></button>
@@ -119,6 +140,36 @@ const Especies = () => {
                 <button className='btonv2' onClick={drechav2}><FontAwesomeIcon className='iconv2' icon={faArrowRight}/></button>
             </div>
         </div>
+        <div className="Divlabel">
+
+
+                <input type="checkbox" id="label" onChange={handleCheckboxClick} checked={isChecked}/>
+                <label className='labelEspecie' htmlFor='label'><FontAwesomeIcon icon={faMagnifyingGlass} className='iconEspecies'></FontAwesomeIcon></label>
+            
+                
+                
+                
+                <ul className='ulEspecies2'>
+                <li className='liEspecies2 activado2' id='18' onClick={click2}>Fairy</li>
+                <li className="liEspecies2" id='17'   onClick={click2}>Dark</li>
+                <li className="liEspecies2" id="16"  onClick={click2}>DRAGON</li>
+                <li className="liEspecies2" id='15' onClick={click2}>Ice</li>
+                <li className="liEspecies2" id='14' onClick={click2}>PSYCHIC</li>
+                <li className="liEspecies2" id='13' onClick={click2}>Electric</li>
+                <li className="liEspecies2" id='8'  onClick= {click2}>Ghost</li>
+                <li className="liEspecies2" id='7' onClick={click2}>Bug</li>
+                <li className="liEspecies2" id='9'  onClick={click2}>Steel</li>
+                <li className="liEspecies2" id='12' onClick={click2}>Grass</li>
+                <li className="liEspecies2" id='6' onClick={ click2}>Rock</li>
+                <li className="liEspecies2" id='5' onClick={click2}>Ground</li>
+                <li className="liEspecies2" id='4' onClick={click2}>Poison</li>
+                <li className="liEspecies2" id='3' onClick={click2}>Flying</li>
+                <li className="liEspecies2" id='2' onClick={click2}>Fighting</li>
+                <li className="liEspecies2" id='1' onClick={click2}>Normal</li>
+                <li className="liEspecies2" id='11' onClick={click2}>Water</li>
+                <li className="liEspecies2" id='10' onClick={click2}>Fire</li>
+            </ul>
+            </div>
         {
             Loading === true
             ?
@@ -148,8 +199,9 @@ const Especies = () => {
             }
         </ul>
         </section>  
-        </div>       
+        </div>      
         </main>
+        </>
 
 )
 }

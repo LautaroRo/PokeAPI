@@ -1,5 +1,11 @@
 /*--Page 1-*/
 
+
+
+.backgraoundLoading{
+    background-color: red;
+}
+
 .body{
     background:linear-gradient(rgba(0,0,0, 0.50) 0%, rgba(0,0,0, 0.50) 100%), url("https://i0.wp.com/codigoespagueti.com/wp-content/uploads/2023/03/Diseno-sin-titulo-9.jpg?fit=1280%2C720&quality=80&ssl=1");
     background-size: cover;
@@ -146,16 +152,18 @@ body{
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
-
+    min-height: 100vh;
+    height: 100%;
 }
 
 
 .container{
-    background-color: black;
+    background:linear-gradient(rgba(0,0,0, 0.40) 0%, rgba(0,0,0, 0.40) 100%),  url("./../../Assets/PokemonGif2.gif");
+    background-size: cover;
+    background-position: center center;
+    height:  100%;
     min-height: 100vh;
-    height: 100%;
     color: white;
-    margin-bottom: 10%;
 }
 
 
@@ -163,7 +171,6 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 5%;
     flex-direction: column;
 }
 
@@ -174,7 +181,7 @@ body{
     max-width: 400px;
     position: relative;
     overflow: hidden;
-
+    margin-top: 6%;
 }
 .input{
     width: 100%;
@@ -231,18 +238,19 @@ body{
     justify-content: center;
     align-items: center;
     width: 80%;
+    margin-bottom: 10%;
 }
 
 
 .index{
     display: grid;
     height: 100%;
-    min-height: 30em;
-    margin-top: 10%;
+    min-height: 30em;    
+    margin-top: 3%;
     grid-template-columns: 40% 60%;
     width: 100%;
     border: 1px solid white;
-    background-color: rgb(44, 44, 44);
+    background-color: rgb(44, 44, 44, 0.75);
 }
 
 
@@ -250,7 +258,7 @@ body{
 .card1{
     display: flex;
     justify-content: center;
-    background-color: black;
+    background: rgba(0,0,0, 0.50);
     align-items: center;
     height: 100%;
     min-height: 100px;
@@ -317,7 +325,7 @@ body{
     text-decoration: none;
     text-transform: uppercase;
     color: white;
-    transition: all 2s;
+    transition: all .5s;
     margin: 0 3%;
     position: relative;
     cursor: pointer;
@@ -340,7 +348,9 @@ body{
     display: block;
 }
 
-
+.liOpciones:hover{
+    color: #2ecece;
+}
 .liOpciones:hover::after{
     transform: scaleX(1);
 }
@@ -531,6 +541,10 @@ body{
         left: 220px;
         
     }
+
+    .form{
+        margin-top: 16%;
+    }
     .bton2{
         right: 220px;
         
@@ -595,6 +609,15 @@ body{
 
     .search-list{
         width: 150px;
+    }
+
+    .lbl-nombre{
+        width: 60%;
+    }
+
+    .form{
+        left: 45px;
+        width: 60%;
     }
 
     .search{
