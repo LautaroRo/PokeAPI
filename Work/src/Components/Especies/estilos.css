@@ -220,9 +220,19 @@
     padding: .6em 1.4em;
     position: relative;
     top: 60px;
+    transition: all .5s;
+    outline: none;
+    border: none;
 }
 
+.btonv2:hover{
+    background-color: black;
+    border: 1px solid white;
+}
 
+.btonv2:hover .iconv2{
+    color: white;
+}
 .iconv2{
     color: black;
 }
