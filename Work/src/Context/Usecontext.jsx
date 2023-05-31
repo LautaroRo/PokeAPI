@@ -75,7 +75,8 @@ const Usecontext = ({children}) => {
         
 
         //Buscar al pokemon mediante su nombre
-        let url = `https://pokeapi.co/api/v2/pokemon/${name}`;
+        const nombre = name.toLowerCase()
+        let url = `https://pokeapi.co/api/v2/pokemon/${nombre}`;
         
         const response = await fetch(url);
         const data = await response.json();
@@ -200,13 +201,13 @@ const Usecontext = ({children}) => {
             
             let valorBusqueda = e.target.value;
     
-            
+            const valor = valorBusqueda?.toLowerCase()
     
-            if(valorBusqueda.length > 2){
+            if(valor.length > 2){
                 const busqueda = obtener.filter(element => {
-                    return element.nombre?.toLowerCase().includes(valorBusqueda)
+                    return element.nombre?.toLowerCase().includes(valor)
                 })
-                buscarpokemon(valorBusqueda.toLowerCase())
+                buscarpokemon(valor)
                 shwoSearChList(busqueda)
                 if(busqueda.length > 2){
                     setBotones(true)
