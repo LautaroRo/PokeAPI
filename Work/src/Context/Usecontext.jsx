@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 import corazon from "./../Assets/corazon.png"
 import espada from "./../Assets/espada.png"
 import proteger from "./../Assets/proteger.png"
@@ -22,6 +22,12 @@ const Usecontext = ({children}) => {
     const [SeccionHabilidades, setSeccionHabilidades] = useState(false)
     const [animation, setAnimation] = useState(false)
 
+    const [Pokemons, setPokemons] = useState([])
+    const [Almacenar, setAlmacenar] = useState([])
+    const [CambiarButons, setCambiarButtons] = useState(false)
+
+
+    const input = document.querySelector(".input")
 
     let search = document.getElementById("search-list")
     const cambiarPage = () =>{
@@ -29,7 +35,7 @@ const Usecontext = ({children}) => {
     }
 
     const AllPokemons = async()=>{
-        let url = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1280";
+        let url = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=800";
         const response = await fetch(url);
         const data = await response.json();
 
@@ -60,12 +66,13 @@ const Usecontext = ({children}) => {
 
         }
 
+
         setObtener(pokemonsAlmacenados)
     }
 
 
     const buscarpokemon = async(name) => {
-    
+        
 
         //Buscar al pokemon mediante su nombre
         let url = `https://pokeapi.co/api/v2/pokemon/${name}`;
@@ -81,7 +88,6 @@ const Usecontext = ({children}) => {
         for(let i = 0; data.types.length > i; i++){
         
             const tipo =data.types[i].type.name
-            console.log(data.types[i].type.url)
             if( i > 0 ){
                 especieContact.push(" - ")
             }
@@ -103,12 +109,21 @@ const Usecontext = ({children}) => {
             height: data.height,
             especie: especie
         }
-        
+
         setEstado(info);
-        
-        
-        
-        
+        setPokemons(info)
+
+        const ewe = Almacenar.some((item) => item.nombre === name);
+        if(ewe){
+            setCambiarButtons(true)
+            console.log(Almacenar)
+            console.log("se cambio a true")
+        }else{
+            setCambiarButtons(false)
+            console.log("se cambio a false")
+            console.log(Almacenar)
+        }
+
         //MOvimientos
         const movimientos = []
         
@@ -226,16 +241,17 @@ const Usecontext = ({children}) => {
         };
 
         const buscar = (e) =>{
+            e.preventDefault()
             let searchNombre = e.target.dataset.nombre
-            const input = document.querySelector(".input")
             if(searchNombre === undefined){
                 console.log(false)
             }
             else if(searchNombre !== undefined){
                 input.value = searchNombre
-                buscarpokemon(searchNombre)
+                buscarpokemon(input.value)
                 search.innerHTML= ""
             }
+
         }
         
         const scrollMas = (e) =>{
@@ -260,7 +276,35 @@ const Usecontext = ({children}) => {
             console.log("error")
             }
         }
+
+
+
+        const marcar = (e) => {
+            e.preventDefault();
+            const ewe = Almacenar.some((item) => item.id === Pokemons.id);
+
+            if (ewe) {
+                const button = document.querySelector(".PosicionHeart2")
+
+                    button.classList?.remove("PosicionHeart2")
+                    button.classList?.add("PosicionHeart")
     
+                    const actualizados = Almacenar.filter((element) => element.id !== Pokemons.id)
+                    
+                    setAlmacenar(actualizados)
+                
+                
+            } else {                
+                const button = document.querySelector(".PosicionHeart")
+                    
+                    button.classList?.remove("PosicionHeart")
+                    button.classList?.add("PosicionHeart2")
+                    setAlmacenar((prevAlmacenar) => [...prevAlmacenar, Pokemons]);
+                
+            }
+        };
+
+            
 
         const seccionC = (e) =>{
             setSeccionCaract(true)
@@ -316,7 +360,7 @@ const Usecontext = ({children}) => {
     
         
     return (
-        <Use.Provider value={{cambiarPage, page, setPage, AllPokemons, obtener, habilidades, Stats, botones, subir, Moves, estado, buscarpokemon, scrollMas, scrollMenos , buscar, seccionM, seccionC, seccionS, seccionH, SeccionCaract, SeccionMove,SeccionStats,SeccionHabilidades, cambiar, animation, setAnimation, pregunta}}>
+        <Use.Provider value={{cambiarPage, page, setPage, AllPokemons, obtener, habilidades, Stats, botones, subir, Moves, estado, buscarpokemon, scrollMas, scrollMenos , buscar, seccionM, seccionC, seccionS, seccionH, SeccionCaract, SeccionMove,SeccionStats,SeccionHabilidades, cambiar, animation, setAnimation, pregunta, marcar, Almacenar, setEstado, CambiarButons }}>
             {children}
         </Use.Provider>
     )

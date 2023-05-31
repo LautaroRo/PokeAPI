@@ -7,9 +7,6 @@ function Header() {
 
     const handleCheckboxClick = (e) => {
         setIsChecked(!isChecked);
-
-        document.querySelector(".activado").classList?.remove("activado")
-        e.target.classList?.add("activado")
     };
 
 return (
@@ -20,22 +17,15 @@ return (
                 <img src={pokebola} alt="Pokebola" />
             </label>
             <ul>
-            <li className='liHeader activado' onClick={handleCheckboxClick}>
-                    <NavLink className="liNav" to="/">
-                        <span>Inicio</span>
+            <li className='liHeader'>
+                    <NavLink className={({isActive}) => isActive ? "active" : 'liNav'} to="/" onClick={handleCheckboxClick}>
+                    Inicio
                     </NavLink>
             </li>
-                <li className='liHeader' onClick={handleCheckboxClick}>
+                <li className='liHeader'>
                     
-                        <NavLink className="liNav" to="/todos">
-                            <span>Todos</span>
-                        </NavLink>
-
-                </li>
-                <li className='liHeader' onClick={handleCheckboxClick}>
-                    
-                        <NavLink className="liNav" to="/especies">
-                            <span>Especies</span>
+                        <NavLink onClick={handleCheckboxClick} className={({isActive}) => isActive ? "active" : 'liNav'} to="/especies">
+                            Especies
                         </NavLink>
                 </li>
 

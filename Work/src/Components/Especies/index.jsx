@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext,useEffect, useState } from 'react'
 import "./estilos.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight, faArrowLeft,faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons"
 import girar from "./../../Assets/loading.png"
+import { Use } from '../../Context/Usecontext'
 
 const Especies = () => {
 
@@ -10,8 +11,11 @@ const Especies = () => {
     const [estadoEspecie, setEstadoEspecie] = useState([])
     const [count, setCount] = useState(18)
     const [Loading, setLoading] = useState(false)
+
+    const {Almacenar} = useContext(Use)
+
+    console.log(Almacenar)
     const Especies = async() =>{
-        console.log(count)
         const response = await fetch(`https://pokeapi.co/api/v2/type/${count}/`)
         const data = await response.json()
 
@@ -43,7 +47,6 @@ const Especies = () => {
     }
     useEffect(()=>{
         Especies()
-
             setLoading(true)
         
     },[count])
@@ -81,8 +84,14 @@ const Especies = () => {
 
     const click = (e) => {
         e.preventDefault();
-        const valor = e.target.id;
-        setCount(valor);
+        if(e.target.id === "20"){
+            setEstadoEspecie(Almacenar)
+            console.log(estadoEspecie)
+        }else{
+            const valor = e.target.id;
+            setCount(valor);
+        }
+
         
         const activados = document.querySelector(".activado");
         if (activados) {
@@ -94,8 +103,13 @@ const Especies = () => {
 
         const click2 = (e) => {
             e.preventDefault();
-            const valor = e.target.id;
-            setCount(valor);
+            if(e.target.id === "20"){
+                setEstadoEspecie(Almacenar)
+                console.log(estadoEspecie)
+            }else{
+                const valor = e.target.id;
+                setCount(valor);
+            }
             const activados = document.querySelector(".activado2");
             if(activados){
                 activados.classList.remove("activado2");
@@ -116,7 +130,8 @@ const Especies = () => {
             </div>
 
             <ul className='ulEspecies'>
-                <li className='liEspecies activado' id='18'  onClick={click}>Fairy</li>
+            <li className='liEspecies activado' id='18'  onClick={click}>Fairy</li>
+                <li className='liEspecies' id="20" onClick={click}>Favoritos</li>
                 <li className="liEspecies" id='17'   onClick={click}>Dark</li>
                 <li className="liEspecies" id="16"  onClick={click}>DRAGON</li>
                 <li className="liEspecies" id='15' onClick={click}>Ice</li>
@@ -151,6 +166,7 @@ const Especies = () => {
                 
                 <ul className='ulEspecies2'>
                 <li className='liEspecies2 activado2' id='18' onClick={click2}>Fairy</li>
+                <li className='liEspecies2' id="20" onClick={click2}>Favoritos</li>
                 <li className="liEspecies2" id='17'   onClick={click2}>Dark</li>
                 <li className="liEspecies2" id="16"  onClick={click2}>DRAGON</li>
                 <li className="liEspecies2" id='15' onClick={click2}>Ice</li>

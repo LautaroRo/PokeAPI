@@ -1,25 +1,37 @@
 import React, { useContext, useEffect, useState } from 'react'
 import "./estilos.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRight, faArrowUp, faArrowDown} from "@fortawesome/free-solid-svg-icons"
+import { faArrowRight, faArrowUp, faArrowDown, faHeart} from "@fortawesome/free-solid-svg-icons"
 import pokebola2 from "./../../Assets/pokebola2.png"
 import pokebola3 from "./../../Assets/pokebola3.png"
 import pokebol4 from "./../../Assets/superball.png"
 import { Use } from '../../Context/Usecontext'
+
 const Main = () => {
 
-    const {cambiarPage, page, setPage, AllPokemons, obtener, habilidades, Stats, botones, subir, Moves, estado, scrollMas, scrollMenos , buscar, seccionM, seccionC, seccionS, seccionH, SeccionCaract, SeccionMove,SeccionStats,SeccionHabilidades, cambiar, animation, setAnimation, pregunta } = useContext(Use)
+    const {cambiarPage, page, setPage, AllPokemons, obtener, habilidades, Stats, botones, subir, Moves, estado, scrollMas, scrollMenos , buscar, seccionM, seccionC, seccionS, seccionH, SeccionCaract, SeccionMove,SeccionStats,SeccionHabilidades, cambiar, animation, setAnimation, pregunta, marcar, setEstado, CambiarButons } = useContext(Use)
+
+    const [count, setCount] = useState(0)
+    useEffect(()=>{
+
+        setCount(count + 1)
+        if(count === 0){
+            const body = document.querySelector(".body2")
+                body?.classList?.add("none")
+        }
+    },[page])
+
 
 
 useEffect(()=>{
-    AllPokemons()
+        AllPokemons()
+        setEstado([])
 },[])
 
-    console.log(obtener)
     return (
     <div>
     {
-        obtener.length < 0
+        obtener.length === 0
 
         ?
         <div className='backgraoundLoading'>
@@ -33,7 +45,6 @@ useEffect(()=>{
 
         ?
             <div className='body'>
-                <h1>Bienvenido a la pokedex!!!!</h1>
                 {
                     animation === false
                     ?
@@ -52,7 +63,6 @@ useEffect(()=>{
 
         <>
             <div className='body2'>
-                <h1>Bienvenido a la pokedex!!!!</h1>
                 <button onClick={() => setPage(true)} onMouseEnter={() => setAnimation(false)}id="bton" className='boton'><p>Ingresar</p><FontAwesomeIcon className='icon' icon={faArrowRight}/></button>
             </div>
 
@@ -92,7 +102,19 @@ useEffect(()=>{
                                     ?
                                     <img src={pregunta} alt={estado.id} />
                                     :
+                                    <div className='PosicionMarco'>
                                         <img src={estado.img} alt={estado.id} />
+                                            {
+                                                CambiarButons === false
+                                                ?
+                                                    <FontAwesomeIcon onClick={marcar} className='PosicionHeart' icon={faHeart}/>
+                                                :
+                                                    <FontAwesomeIcon onClick={marcar} className='PosicionHeart2' icon={faHeart}/>
+                                            }
+                                            
+                                    </div>
+                                    
+                                    
                                     }
                                     
                                 </div>
@@ -197,7 +219,6 @@ useEffect(()=>{
                         </main>
                     </div>
             </div>
-
         </body>
         </>
 

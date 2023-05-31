@@ -3,7 +3,12 @@
 
 
 .backgraoundLoading{
-    background-color: red;
+    background: linear-gradient(rgba(0,0,0, 0.50) 0%, rgba(0,0,0, 0.50) 100%),url("./../../Assets/GifLoading.gif");
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
+    position: relative;
+    z-index: 3000;
 }
 
 .body{
@@ -130,10 +135,13 @@
     left: 0px;
     width: 100%;
     top: 1000px;
-    animation: bodys 2s linear;
+    animation: bodys 1s linear;
     z-index: 1000;
 }
 
+.none{
+    display: none;
+}
 
 @keyframes bodys{
     from{
@@ -429,7 +437,7 @@ body{
 
 .search{
     display: flex;
-    background-color: rgb(49, 49, 49);
+    background-color: rgb(62 59 59 / 60%);
     margin: 20px;
     height: 100px;
     width: 100%;
@@ -490,6 +498,31 @@ body{
 .bton2{
     position: relative;
     right: 350px;
+}
+
+
+.PosicionMarco{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;align-items: center;
+}
+.PosicionHeart{
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.PosicionHeart2{
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: red;
 }
 
 
