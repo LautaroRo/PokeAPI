@@ -35,7 +35,7 @@ const Usecontext = ({children}) => {
     }
 
     const AllPokemons = async()=>{
-        let url = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=400";
+        let url = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=200";
         const response = await fetch(url);
         const data = await response.json();
 
