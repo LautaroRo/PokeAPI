@@ -35,7 +35,7 @@ const Usecontext = ({children}) => {
     }
 
     const AllPokemons = async()=>{
-        let url = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=200";
+        let url = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=100";
         const response = await fetch(url);
         const data = await response.json();
 
@@ -200,13 +200,15 @@ const Usecontext = ({children}) => {
             setMoves([])
             
             let valorBusqueda = e.target.value;
-    
+
             const valor = valorBusqueda?.toLowerCase()
     
             if(valor.length > 2){
                 const busqueda = obtener.filter(element => {
                     return element.nombre?.toLowerCase().includes(valor)
                 })
+
+
                 buscarpokemon(valor)
                 shwoSearChList(busqueda)
                 if(busqueda.length > 2){
